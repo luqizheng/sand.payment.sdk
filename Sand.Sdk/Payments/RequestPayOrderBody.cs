@@ -62,7 +62,9 @@ namespace Sand.Sdk
         /// 订单描述
         /// </summary>
         public string Body { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public int TxnTimeOut { get; set; }
         /// <summary>
         /// 支付方式，请参考 Pay'Mode
@@ -99,7 +101,7 @@ namespace Sand.Sdk
         /// <summary>
         /// 0-T1(默认) 1-T0 2-D0
         /// </summary>
-        public int ClearCycle { get; set; }
+        public ClearCycle ClearCycle { get; set; }
         /// <summary>
         /// 分账信息
         /// </summary>

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sand.Sdk.CheckoutCounters
 {
-    
+
     public class CheckoutCounter
     {
         public string orderCode { get; set; }
@@ -23,7 +23,7 @@ namespace Sand.Sdk.CheckoutCounters
         /// <summary>
         /// 0-T1(默认) 1-T0 2-D0
         /// </summary>
-        public int clearCycle { get; set; }
+        public ClearCycle clearCycle { get; set; }
         public string riskRateInfo { get; set; }
         public string bizExtendParams { get; set; }
         public string merchExtendParams { get; set; }

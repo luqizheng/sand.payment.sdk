@@ -91,20 +91,34 @@ namespace Sand.Sdk
             dict.Add("totalAmount", orderInfo.totalAmount.ToString().PadLeft(12, '0'));
             dict.Add("subject", orderInfo.subject);
             dict.Add("body", orderInfo.body);
-            dict.Add("txnTimeOut", orderInfo.txnTimeOut);
+            if (String.IsNullOrEmpty(orderInfo.txnTimeOut))
+                dict.Add("txnTimeOut", orderInfo.txnTimeOut);
             dict.Add("payMode", orderInfo.payMode);
-            dict.Add("payExtra", orderInfo.payExtra);
+            if (String.IsNullOrEmpty(orderInfo.payExtra))
+                dict.Add("payExtra", orderInfo.payExtra);
             dict.Add("clientIp", orderInfo.clientIp);
             dict.Add("notifyUrl", orderInfo.notifyUrl);
             dict.Add("frontUrl", orderInfo.frontUrl);
-            dict.Add("storeId", orderInfo.storeId);
-            dict.Add("terminalId", orderInfo.terminalId);
-            dict.Add("operatorId", orderInfo.operatorId);
-            dict.Add("clearCycle", orderInfo.clearCycle);
-            dict.Add("riskRateInfo", orderInfo.riskRateInfo);
-            dict.Add("bizExtendParams", orderInfo.bizExtendParams);
-            dict.Add("merchExtendParams", orderInfo.merchExtendParams);
-            dict.Add("extend", orderInfo.extend);
+            if (String.IsNullOrEmpty(orderInfo.storeId))
+                dict.Add("storeId", orderInfo.storeId);
+
+            if (String.IsNullOrEmpty(orderInfo.terminalId))
+                dict.Add("terminalId", orderInfo.terminalId);
+            if (String.IsNullOrEmpty(orderInfo.operatorId))
+                dict.Add("operatorId", orderInfo.operatorId);
+
+            dict.Add("clearCycle", Convert.ToInt32(orderInfo.clearCycle).ToString());
+
+            if (String.IsNullOrEmpty(orderInfo.riskRateInfo))
+                dict.Add("riskRateInfo", orderInfo.riskRateInfo);
+
+
+            if (String.IsNullOrEmpty(orderInfo.bizExtendParams))
+                dict.Add("bizExtendParams", orderInfo.bizExtendParams);
+            if (String.IsNullOrEmpty(orderInfo.merchExtendParams))
+                dict.Add("merchExtendParams", orderInfo.merchExtendParams);
+            if (String.IsNullOrEmpty(orderInfo.extend))
+                dict.Add("extend", orderInfo.extend);
             return dict;
         }
         private RequestHeader CreateHeader(MerchantInfo info, string method)
